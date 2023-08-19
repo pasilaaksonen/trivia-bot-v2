@@ -1,6 +1,4 @@
 require("dotenv").config();
-const { chatgpt } = process.env;
-const axios = require("axios");
 const { SlashCommandBuilder } = require("discord.js");
 
 module.exports = {
@@ -18,7 +16,6 @@ module.exports = {
       fetchReply: true,
     });
 
-    const userMessage = interaction.options.getString("ping");
     const answer = `🏓Latency is ${Date.now() - message.createdTimestamp}ms. API Latency is ${Math.round(client.ws.ping)}ms`
 
     await interaction.editReply({
